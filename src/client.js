@@ -1,27 +1,10 @@
-import React from 'react'
-import {hydrate} from 'react-dom'
-import {Provider} from 'react-redux'
-import configureStore from './redux/configureStore'
-import App from './components/app'
-
-// Read the state sent with markup
-const state = window.__STATE__;
-
-// delete the state from global window object
-delete window.__STATE__;
-
-// reproduce the store used to render the page on server
-const store = configureStore(state)
+import React from 'react';
+import { hydrate } from 'react-dom';
+import App from './components/app';
 
 /**
- * hydrate the page to make sure both server and client
- * side pages are identical. This includes markup checking,
- * react comments to identify elements and more.
+ * If you call ReactDOM.hydrate() on a node that already has this server-rendered markup,
+ * React will preserve it and only attach event handlers, allowing you to have a
+ * very performant first-load experience.
  */
-
-hydrate(
-  <Provider store={store} >
-     <App />
-  </Provider>,
-  document.querySelector('#app')
-)
+hydrate(<App />, document.querySelector('body'));

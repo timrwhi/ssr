@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node index.js",
     "pack": "webpack --config webpack.config.js",
-    "babel": "babel src -d views",
+    "babel": "babel src -d dist",
     "build": "npm run pack && npm run babel"
   },
   "author": "Rohit kumar",
