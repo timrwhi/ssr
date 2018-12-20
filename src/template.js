@@ -1,7 +1,5 @@
 // html skeleton provider
 function template(title, html = '') {
-  const filename = html ? 'client' : 'bundle'; // Dynamically ship scripts based on render type
-  const scripts = `<script src="assets/${filename}.js"></script>`;
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -11,7 +9,7 @@ function template(title, html = '') {
       </head>
       <body>
         ${html}
-        ${scripts}
+        <script src="assets/main.js"></script>
       </body>
   `;
 }
